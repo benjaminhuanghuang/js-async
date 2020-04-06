@@ -1,13 +1,8 @@
 import fetch from "node-fetch";
-
-const sleep = (timeout = 2000) => {
-  new Promise((resolve) => {
-    setTimeout(resolve, timeout);
-  });
-};
+import bluebird from "bluebird"
 
 const getZhiHuColumn = async (id) => {
-  await sleep(2000);
+  await bluebird.delay(2000);
   const url = `https://zhuanlan.zhihu.com/api/columns/${id}`;
   const response = await fetch(url);
   if (response.status !== 200) {
@@ -30,12 +25,13 @@ const showColumnsInfo_Serial = async () => {
   console.timeEnd("showColumnsInfo_Serial")
 };
 
+showColumnsInfo_Serial();
 const showColumnsInfo_Parallel = async () => {
   // Parallel
   console.time("showColumnsInfo_Parallel")
   const names = ["feweekly", "toolingtips"]
 
-  promises = names.map(name=> getZhiHuColumn(name))
+  const promises = names.map(name=> getZhiHuColumn(name))
 
   for (const p of promises){
     const column = await p;
@@ -45,4 +41,4 @@ const showColumnsInfo_Parallel = async () => {
   console.timeEnd("showColumnsInfo_Parallel")
 };
 
-showColumnsInfo_Parallel();
+// showColumnsInfo_Parallel();
