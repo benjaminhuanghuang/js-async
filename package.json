@@ -1,0 +1,16 @@
+{
+  "name": "js-async-study",
+  "version": "1.0.0",
+  "dependencies": {
+    "node-fetch": "~2.6.0",
+    "moment": "^2.24.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.9.0",
+    "lite-server": "^2.3.0",
+    "nodemon": "^2.0.2"
+  }
+}
