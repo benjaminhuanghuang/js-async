@@ -17,19 +17,31 @@ const getZhiHuColumn = async (id) => {
   return await response.json(); // Return a promise
 };
 
+const showColumnsInfo_Serial = async () => {
+  // Serial
+  console.time("showColumnsInfo_Serial")
+  const names = ["feweekly", "toolingtips"]
+
+  for (const name of names){
+    const column = await getZhiHuColumn(name);
+    console.log(`Name: ${column.name}`);
+    console.log(`INTRO: ${column.intro}`);
+  }
+  console.timeEnd("showColumnsInfo_Serial")
+};
+
 const showColumnsInfo_Parallel = async () => {
   // Parallel
   console.time("showColumnsInfo_Parallel")
-  const feweeklyPromise = getZhiHuColumn("feweekly");
-  const toolingtipsPromise = getZhiHuColumn("toolingtips");
+  const names = ["feweekly", "toolingtips"]
 
-  // Promise.all return a promise
-  const [feweekly, toolingtips] = await Promise.all([feweeklyPromise, toolingtipsPromise])
+  promises = names.map(name=> getZhiHuColumn(name))
 
-  console.log(`Name: ${feweekly.name}`);
-  console.log(`INTRO: ${feweekly.intro}`);
-  console.log(`Name: ${toolingtips.name}`);
-  console.log(`INTRO: ${toolingtips.intro}`);
+  for (const p of promises){
+    const column = await p;
+    console.log(`Name: ${column.name}`);
+    console.log(`INTRO: ${column.intro}`);
+  }
   console.timeEnd("showColumnsInfo_Parallel")
 };
 
