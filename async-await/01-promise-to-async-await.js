@@ -21,4 +21,5 @@ async function getZhiHuColumn_Async(id) {
   console.log(`Name: ${column.name}`);
   console.log(`INTRO: ${column.intro}`);
 }
+
 getZhiHuColumn_Async("feweekly");

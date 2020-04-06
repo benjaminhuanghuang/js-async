@@ -7,8 +7,7 @@ import fetch from "node-fetch";
 async function getZhiHuColumn(id) {
   const url = `https://zhuanlan.zhihu.com/api/columns/${id}`;
   const response = await fetch(url);
-  const column = await response.json();
-  return column; // Return a promise
+  return await response.json(); // Return a promise 
 }
 
 /*
