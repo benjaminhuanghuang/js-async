@@ -24,4 +24,15 @@ function printNumbers() {
   }
 }
 
+/* 
+  Fix the issue 2, using let
+*/
+function printNumbers2() {
+  for (let i = 0; i < 10; i++) {
+    setTimeout(function () {
+      console.log(i);
+    }, 100 * i);
+  }
+}
+
 printNumbers();
