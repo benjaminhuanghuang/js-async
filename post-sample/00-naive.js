@@ -31,5 +31,5 @@ createPost({
   body: 'This is Post 3'
 })
 
-// Do no show the Post 3
+// Does no show the Post 3
 showPosts();

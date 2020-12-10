@@ -2,9 +2,9 @@
   "name": "js-async-study",
   "version": "1.0.0",
   "dependencies": {
-    "node-fetch": "~2.6.0",
+    "bluebird": "^3.7.2",
     "moment": "^2.24.0",
-    "bluebird": "^3.7.2"
+    "node-fetch": "^2.6.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",

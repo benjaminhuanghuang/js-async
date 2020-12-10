@@ -18,7 +18,10 @@ function showPosts(){
   }, 1000);
 }
 
-
+/*
+  Step 1.
+  in my function with long time work, return a promise(callback),
+*/
 function createPost(post){
   return new Promise((resolve, reject)=>{
     setTimeout(()=>{
@@ -34,11 +37,15 @@ function createPost(post){
   })
 }
 
-
+/*
+  Step 2: get the promise
+*/
 let promise = createPost({
   title: 'Post 3',
   body: 'This is Post 3'
 })
 
-
+/*
+  Step 3: Let the promise pass dat or error to callback
+*/
 promise.then(showPosts).catch(err=>console.log(err));
